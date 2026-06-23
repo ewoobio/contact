@@ -4,6 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>원료 상담 신청 | 이우바이오</title>
+  <script>
+    const GA_MEASUREMENT_ID = '';
+    if (GA_MEASUREMENT_ID) {
+      const gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+      document.head.appendChild(gaScript);
+      window.dataLayer = window.dataLayer || [];
+      window.gtag = function(){window.dataLayer.push(arguments);};
+      window.gtag('js', new Date());
+      window.gtag('config', GA_MEASUREMENT_ID);
+    }
+  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -444,13 +457,28 @@
 
 <div id="toast"></div>
 
-<script>
+  <script>
   // ── Replace this with your deployed Apps Script Web App URL ──
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyg3aoEc0P5FRuFM6NEaj6udvdgm_Nzd-ndUXCB87IkVHrLhz6iXg1JXpU1kpI6pO-yRg/exec';
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
 
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
   const toast = document.getElementById('toast');
+
+  function getTrackingData() {
+    const params = new URLSearchParams(window.location.search);
+    const tracking = {
+      '유입 URL': window.location.href,
+      '유입 경로': document.referrer || '',
+    };
+
+    UTM_KEYS.forEach((key) => {
+      tracking[key] = params.get(key) || '';
+    });
+
+    return tracking;
+  }
 
   function showToast(msg, type = 'success') {
     toast.textContent = msg;
@@ -531,6 +559,7 @@
       '전자 메일 주소': document.getElementById('email').value.trim(),
       휴대폰: document.getElementById('phone').value.trim(),
       메모: document.getElementById('memo').value.trim(),
+      ...getTrackingData(),
     };
 
     try {
@@ -541,6 +570,14 @@
       const json = await res.json();
 
       if (json.result === 'success') {
+        if (typeof gtag === 'function') {
+          gtag('event', 'lead_form_submit', {
+            campaign: data.utm_campaign || '',
+            cta_position: data.utm_content || '',
+            source: data.utm_source || '',
+            medium: data.utm_medium || ''
+          });
+        }
         document.getElementById('form-wrap').style.display = 'none';
         document.getElementById('success-screen').style.display = 'flex';
         window.scrollTo({ top: 0, behavior: 'smooth' });
