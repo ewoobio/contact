@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hexagonal 6C-20 | 신생아 피부장벽에서 찾은 세라마이드 처방 근거</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f5f7f8;
+      color: #17212b;
+      font-family: Arial, "Noto Sans KR", "Malgun Gothic", sans-serif;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+    a { color: inherit; }
+    .page { max-width: 1040px; margin: 0 auto; background: #fff; min-height: 100vh; }
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 32px;
+      background: #5b1026;
+      color: #fff;
+    }
+    .brand { font-size: 14px; font-weight: 800; letter-spacing: .04em; }
+    .tagline { font-size: 13px; color: #f4d7df; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 34px;
+      align-items: center;
+      padding: 48px 42px 34px;
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.92), rgba(255,255,255,.82)),
+        radial-gradient(circle at 12% 10%, #e9fbfb 0, transparent 34%),
+        radial-gradient(circle at 86% 28%, #ffe7ed 0, transparent 28%),
+        #fff;
+    }
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: #007b83;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.2;
+      letter-spacing: 0;
+      color: #17212b;
+    }
+    .lead {
+      margin: 20px 0 0;
+      color: #3d4a55;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    .hero strong, .point strong { color: #5b1026; }
+    .hero-card {
+      border: 1px solid #e5e9ec;
+      background: #fff;
+      border-radius: 8px;
+      padding: 16px;
+      box-shadow: 0 18px 45px rgba(23,33,43,.10);
+    }
+    .hero-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 0;
+    }
+    .caption {
+      margin-top: 12px;
+      color: #5c6770;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+      align-items: center;
+    }
+    .button {
+      display: inline-block;
+      min-width: 190px;
+      padding: 14px 22px;
+      background: #5b1026;
+      color: #fff;
+      border-radius: 4px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 800;
+    }
+    .button.secondary {
+      background: #eefafa;
+      color: #00616a;
+      border: 1px solid #b7e4e4;
+    }
+    .microcopy {
+      margin-top: 10px;
+      color: #6b7280;
+      font-size: 13px;
+    }
+    .hook-list {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .hook-item {
+      padding: 14px;
+      border: 1px solid #dbe3e7;
+      border-radius: 8px;
+      background: rgba(255,255,255,.86);
+    }
+    .hook-item b {
+      display: block;
+      color: #5b1026;
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .hook-item span {
+      display: block;
+      margin-top: 5px;
+      color: #56616b;
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+    .strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid #e6ecef;
+      border-bottom: 1px solid #e6ecef;
+      background: #fbfcfc;
+    }
+    .metric {
+      padding: 24px 30px;
+      border-right: 1px solid #e6ecef;
+    }
+    .metric:last-child { border-right: 0; }
+    .metric-label {
+      color: #68737d;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .metric-value {
+      margin-top: 6px;
+      color: #17212b;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 900;
+    }
+    .metric-note {
+      margin-top: 6px;
+      color: #5b1026;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    section { padding: 42px; }
+    section + section { border-top: 1px solid #edf0f2; }
+    .section-head {
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+    .kicker {
+      color: #007b83;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 8px 0 0;
+      color: #17212b;
+      font-size: 30px;
+      line-height: 1.28;
+      letter-spacing: 0;
+    }
+    .body-text {
+      margin: 14px 0 0;
+      color: #44505a;
+      font-size: 16px;
+      line-height: 1.85;
+    }
+    .proof-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .proof-box {
+      border: 1px solid #e3e8eb;
+      border-radius: 8px;
+      padding: 22px;
+      background: #fff;
+    }
+    .proof-box.highlight {
+      background: #fff7f8;
+      border-color: #f1c7d1;
+    }
+    .proof-title {
+      color: #17212b;
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .proof-text {
+      margin-top: 8px;
+      color: #4b5563;
+      font-size: 15px;
+    }
+    .point {
+      margin-top: 22px;
+      padding: 24px;
+      background: #17212b;
+      color: #fff;
+      border-radius: 8px;
+    }
+    .point-title {
+      color: #9fe2e2;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .03em;
+      text-transform: uppercase;
+    }
+    .point p {
+      margin: 10px 0 0;
+      color: #eef4f6;
+      font-size: 20px;
+      line-height: 1.55;
+      font-weight: 800;
+    }
+    .point strong { color: #ffd9e3; }
+    .formula {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .formula-card {
+      border: 1px solid #e3e8eb;
+      border-radius: 8px;
+      padding: 22px;
+      background: #fbfcfc;
+    }
+    .formula-card h3 {
+      margin: 0 0 12px;
+      color: #17212b;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .chip {
+      padding: 7px 10px;
+      border: 1px solid #dbe3e7;
+      background: #fff;
+      color: #3f4b55;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .apps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .offer-card {
+      border: 1px solid #b7e4e4;
+      border-radius: 8px;
+      padding: 16px;
+      background: #f7ffff;
+      min-height: 114px;
+    }
+    .offer-card b {
+      display: block;
+      color: #00616a;
+      font-size: 15px;
+      line-height: 1.45;
+    }
+    .offer-card span {
+      display: block;
+      margin-top: 7px;
+      color: #4b6064;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .app-card {
+      border: 1px solid #e3e8eb;
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+      min-height: 138px;
+    }
+    .app-card h3 {
+      margin: 0;
+      color: #5b1026;
+      font-size: 17px;
+    }
+    .app-card p {
+      margin: 8px 0 0;
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+    .cta-band {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 22px;
+      align-items: center;
+      padding: 34px 42px;
+      background: #eefafa;
+      border-top: 1px solid #b7e4e4;
+      border-bottom: 1px solid #b7e4e4;
+    }
+    .cta-band h2 {
+      margin: 0;
+      color: #00616a;
+      font-size: 26px;
+    }
+    .cta-band p {
+      margin: 8px 0 0;
+      color: #35545a;
+      font-size: 15px;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-top: 22px;
+    }
+    .step {
+      background: #f6f8f9;
+      border: 1px solid #e3e8eb;
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .step-num {
+      color: #007b83;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .step-text {
+      margin-top: 6px;
+      color: #3f4b55;
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border: 1px solid #e3e8eb;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .spec-table th,
+    .spec-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid #e3e8eb;
+      text-align: left;
+      vertical-align: top;
+    }
+    .spec-table th {
+      width: 28%;
+      background: #f6f8f9;
+      color: #17212b;
+      font-weight: 900;
+    }
+    .spec-table tr:last-child th,
+    .spec-table tr:last-child td { border-bottom: 0; }
+    details {
+      border: 1px solid #e3e8eb;
+      border-radius: 8px;
+      padding: 16px 18px;
+      background: #fff;
+    }
+    details + details { margin-top: 10px; }
+    summary {
+      cursor: pointer;
+      color: #17212b;
+      font-weight: 900;
+    }
+    details p {
+      margin: 10px 0 0;
+      color: #4b5563;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+    .footer {
+      padding: 30px 42px;
+      background: #17212b;
+      color: #d9e2e7;
+      font-size: 13px;
+    }
+    .footer strong { color: #fff; }
+    @media (max-width: 760px) {
+      .topbar { padding: 16px 20px; align-items: flex-start; flex-direction: column; }
+      .hero { grid-template-columns: 1fr; padding: 34px 20px 24px; gap: 24px; }
+      h1 { font-size: 32px; }
+      .lead { font-size: 16px; }
+      .strip, .proof-grid, .formula, .apps, .steps, .cta-band, .hook-list, .offer-grid {
+        grid-template-columns: 1fr;
+      }
+      .metric { border-right: 0; border-bottom: 1px solid #e6ecef; padding: 20px; }
+      .metric:last-child { border-bottom: 0; }
+      section { padding: 34px 20px; }
+      h2 { font-size: 25px; }
+      .cta-band { padding: 28px 20px; }
+      .button { width: 100%; }
+      .spec-table th,
+      .spec-table td {
+        display: block;
+        width: 100%;
+      }
+      .spec-table th { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">EWOO BIO TECH NEWSLETTER</div>
+      <div class="tagline">Hexagonal 6C-20 | Ceramide Barrier Complex</div>
+    </header>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">Newborn skin barrier insight</span>
+        <h1>신생아 피부장벽에서 찾은 세라마이드 처방 근거</h1>
+        <p class="lead">
+          태지와 출생 후 각질층의 지질 구조는 세라마이드가 피부장벽 유지에 얼마나 중요한지 보여줍니다.
+          <strong>Hexagonal 6C-20</strong>은 이 구조적 인사이트를 바탕으로 설계한 영유아·민감피부용 세라마이드 복합소재입니다.
+        </p>
+        <div class="hook-list" aria-label="핵심 후킹 메시지">
+          <div class="hook-item">
+            <b>개발 근거가 필요한 처방에</b>
+            <span>영유아·민감피부·아토피 경향 피부용 장벽 강화 스토리로 연결</span>
+          </div>
+          <div class="hook-item">
+            <b>세라마이드 50% 메시지</b>
+            <span>출생 후 각질층에서 가장 높은 비중을 차지하는 핵심 지질</span>
+          </div>
+          <div class="hook-item">
+            <b>샘플과 처방 상담까지</b>
+            <span>제품 규격, 추천 제형, 적용 가능성을 함께 검토</span>
+          </div>
+        </div>
+        <div class="cta-row">
+          <a class="button" href="https://ewoobio.github.io/contact/?utm_source=newsletter&utm_medium=email&utm_campaign=hexagonal_6c20&utm_content=landing_top_cta" target="_blank" rel="noopener">샘플/자료 요청하기</a>
+          <a class="button secondary" href="#proof">처방 근거 보기</a>
+        </div>
+        <div class="microcopy">샘플, 기술자료, 추천 적용 제형, 처방 상담을 요청할 수 있습니다.</div>
+      </div>
+      <figure class="hero-card">
+        <img src="ceramide_vernix_reference.png" alt="태지와 출생 후 각질층의 지질 조성에서 세라마이드 비중을 보여주는 참고 자료">
+        <figcaption class="caption">
+          Reference image: Composition of lipids in the vernix and postnatal stratum corneum.
+        </figcaption>
+      </figure>
+    </section>
+
+    <div class="strip" aria-label="핵심 수치">
+      <div class="metric">
+        <div class="metric-label">Vernix caseosa</div>
+        <div class="metric-value">20%</div>
+        <div class="metric-note">ceramides</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Postnatal stratum corneum</div>
+        <div class="metric-value">50%</div>
+        <div class="metric-note">ceramides</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Formula concept</div>
+        <div class="metric-value">6C-20</div>
+        <div class="metric-note">complex ceramide barrier care</div>
+      </div>
+    </div>
+
+    <section id="proof">
+      <div class="section-head">
+        <div class="kicker">Why ceramide</div>
+        <h2>세라마이드는 단순 보습 성분이 아니라, 피부장벽 구조를 유지하는 핵심 지질입니다.</h2>
+        <p class="body-text">
+          신생아는 태어날 때 태지라는 천연 보호막을 가지고 나오며, 출생 후 피부가 외부 환경에 적응하면서 각질층의 세라마이드 비율은 크게 증가합니다.
+          이 변화는 영유아·민감피부·아토피 경향 피부 제품에서 세라마이드 함유 처방의 타당성을 뒷받침하는 근거로 활용할 수 있습니다.
+        </p>
+      </div>
+      <div class="proof-grid">
+        <div class="proof-box">
+          <div class="proof-title">태지의 보호막 컨셉</div>
+          <div class="proof-text">
+            Vernix caseosa는 수분 손실을 줄이고 외부 자극으로부터 피부를 보호하는 천연 지질 보호막으로 이해됩니다.
+          </div>
+        </div>
+        <div class="proof-box highlight">
+          <div class="proof-title">출생 후 각질층의 핵심 지질</div>
+          <div class="proof-text">
+            출생 후 각질층에서는 세라마이드 비중이 가장 높게 나타나며, 성숙한 피부장벽에서 세라마이드의 중요성을 보여줍니다.
+          </div>
+        </div>
+      </div>
+      <div class="point">
+        <div class="point-title">Marketing message</div>
+        <p>
+          세라마이드는 신생아 피부장벽의 핵심 지질 성분으로,
+          <strong>민감하고 연약한 피부의 장벽 강화와 수분 보호 컨셉</strong>에 적합합니다.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="kicker">Material concept</div>
+        <h2>Hexagonal 6C-20은 피부 지질 구조에서 착안한 복합 세라마이드 소재입니다.</h2>
+        <p class="body-text">
+          세라마이드, 콜레스테롤, 지방산 등 피부장벽을 구성하는 주요 지질 성분을 함께 설계해
+          베이비·민감피부·럭셔리 장벽 케어 제품에 적용하기 좋은 컨셉을 제공합니다.
+        </p>
+      </div>
+      <div class="formula">
+        <div class="formula-card">
+          <h3>주요 구성 성분</h3>
+          <div class="chips">
+            <span class="chip">Ceramide NP</span>
+            <span class="chip">Ceramide AP</span>
+            <span class="chip">Ceramide EOP</span>
+            <span class="chip">Cholesterol</span>
+            <span class="chip">Fatty acids</span>
+            <span class="chip">Hydrogenated lecithin</span>
+            <span class="chip">Phytosphingosine</span>
+          </div>
+        </div>
+        <div class="formula-card">
+          <h3>처방 관점의 장점</h3>
+          <p class="body-text" style="margin-top:0;font-size:15px;">
+            Liquid Crystal(LC) 구조로 세라마이드를 안정화해 O/W 에멀젼 시스템에서 결정화·침전 리스크를 줄이고, 장벽 강화와 수분 보호 컨셉에 연결하기 쉽습니다.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="cta-band">
+      <div>
+        <h2>영유아·민감피부 장벽 강화 컨셉을 준비 중이신가요?</h2>
+        <p>샘플, 상세 자료, 처방 적용 가능성을 문의해 주세요. 접수 정보는 담당자에게 전달되어 후속 안내가 진행됩니다.</p>
+      </div>
+      <a class="button" href="https://ewoobio.github.io/contact/?utm_source=newsletter&utm_medium=email&utm_campaign=hexagonal_6c20&utm_content=landing_mid_cta" target="_blank" rel="noopener">샘플/자료 요청하기</a>
+    </div>
+
+    <section>
+      <div class="section-head">
+        <div class="kicker">What you get</div>
+        <h2>샘플 요청 시 함께 확인할 수 있는 자료</h2>
+        <p class="body-text">
+          버튼 클릭 이후 문의 내용을 남기면, 제품 검토에 필요한 기본 자료와 적용 가능성을 영업 담당자와 확인할 수 있습니다.
+        </p>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-card">
+          <b>Hexagonal 6C-20 샘플</b>
+          <span>장벽 강화 컨셉 제품 개발 검토용</span>
+        </div>
+        <div class="offer-card">
+          <b>제품 규격·기술자료</b>
+          <span>권장 사용량, 적용 제형, 원료 특징 확인</span>
+        </div>
+        <div class="offer-card">
+          <b>추천 적용 제형</b>
+          <span>크림, 로션, 세럼, 마스크팩 등 제형 상담</span>
+        </div>
+        <div class="offer-card">
+          <b>처방 적용 상담</b>
+          <span>민감피부·베이비·프리미엄 라인 적용 검토</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="kicker">Application</div>
+        <h2>가장 적합한 제품군</h2>
+      </div>
+      <div class="apps">
+        <div class="app-card">
+          <h3>Baby & Kids</h3>
+          <p>베이비 크림, 밀크로션, 어린이 크림 등 연약한 피부장벽 케어 컨셉 제품</p>
+        </div>
+        <div class="app-card">
+          <h3>Sensitive Barrier</h3>
+          <p>민감피부, 아토피 경향 피부, 피부장벽 강화 컨셉의 크림·로션·젤크림</p>
+        </div>
+        <div class="app-card">
+          <h3>Premium Care</h3>
+          <p>20대 초반 영양크림, 40-50대 럭셔리 영양크림, 아이크림, 바디로션, 헤어에센스</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="kicker">Lead process</div>
+        <h2>문의 접수 후 진행 흐름</h2>
+        <p class="body-text">
+          버튼을 통해 문의를 남기면 입력 정보가 저장되고, 영업 담당자에게 전달되어 샘플 및 자료 안내가 진행됩니다.
+        </p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">STEP 01</div>
+          <div class="step-text">샘플/자료 요청 버튼 클릭</div>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 02</div>
+          <div class="step-text">문의 내용 입력</div>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 03</div>
+          <div class="step-text">DB 저장 및 담당자 전달</div>
+        </div>
+        <div class="step">
+          <div class="step-num">STEP 04</div>
+          <div class="step-text">영업 담당자 배정 및 응답</div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="kicker">Technical details</div>
+        <h2>제품 정보</h2>
+      </div>
+      <table class="spec-table">
+        <tr>
+          <th>소재명</th>
+          <td>Hexagonal 6C-20 (Hexagonal Source C-20%, Cerax 6C-20)</td>
+        </tr>
+        <tr>
+          <th>컨셉</th>
+          <td>태지와 각질층 지질 구조에서 착안한 피부장벽 강화 세라마이드 복합소재</td>
+        </tr>
+        <tr>
+          <th>핵심 메시지</th>
+          <td>세라마이드는 신생아 피부장벽의 핵심 지질 성분으로, 민감하고 연약한 피부의 장벽 강화와 수분 보호 컨셉에 적합합니다.</td>
+        </tr>
+        <tr>
+          <th>권장 사용량</th>
+          <td>0.5 ~ 5%</td>
+        </tr>
+        <tr>
+          <th>기술 특징</th>
+          <td>Liquid Crystal(LC) 구조로 세라마이드를 안정화하여 O/W 에멀젼에서 결정화·침전 리스크를 줄이는 설계</td>
+        </tr>
+        <tr>
+          <th>활성 성분 구성</th>
+          <td>세라마이드 6종, Phytosterols, 레시틴, Behenic Acid 등 피부장벽 지질 컨셉 성분</td>
+        </tr>
+        <tr>
+          <th>공정 참고</th>
+          <td>가벼운 O/W 제형 적용 시 유상에서 다른 오일 성분과 함께 가온 후 유화하는 방식으로 검토 가능</td>
+        </tr>
+        <tr>
+          <th>추천 제품</th>
+          <td>베이비 크림, 밀크로션, 어린이 크림, 영양크림, 젤크림, 아이크림, 세럼, 마스크팩, 고급 바디로션, 고급 헤어에센스</td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <div class="section-head">
+        <div class="kicker">FAQ</div>
+        <h2>자주 묻는 질문</h2>
+      </div>
+      <details>
+        <summary>어떤 고객에게 먼저 제안하면 좋나요?</summary>
+        <p>영유아용, 민감성 피부용, 아토피 경향 피부용, 장벽 강화 컨셉, 프리미엄 보습·영양 라인을 개발하는 고객에게 우선 제안하기 좋습니다.</p>
+      </details>
+      <details>
+        <summary>가벼운 세럼·로션 제형에도 적용 가능한가요?</summary>
+        <p>O/W 에멀젼 시스템에서 LC 구조 기반 안정화 컨셉으로 검토할 수 있습니다. 세라마이드 처방 시 발생할 수 있는 결정화·침전 리스크를 줄이는 방향의 소재입니다.</p>
+      </details>
+      <details>
+        <summary>일반 세라마이드 원료와 어떤 차이를 말할 수 있나요?</summary>
+        <p>단일 세라마이드 메시지보다, 세라마이드·콜레스테롤·지방산 등 피부장벽 지질 구조를 함께 고려한 복합 세라마이드 소재라는 점을 강조할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>메일에서 강조할 핵심 한 문장은 무엇인가요?</summary>
+        <p>“신생아 피부장벽의 핵심 지질 성분인 세라마이드에서 착안한 영유아·민감피부용 장벽 강화 복합소재”로 정리할 수 있습니다.</p>
+      </details>
+      <details>
+        <summary>추가 자료나 샘플은 어떻게 요청하나요?</summary>
+        <p>페이지 내 샘플/자료 요청 버튼을 눌러 문의 내용을 남기면 담당자가 확인 후 연락드립니다.</p>
+      </details>
+      <div class="cta-row">
+        <a class="button" href="https://ewoobio.github.io/contact/?utm_source=newsletter&utm_medium=email&utm_campaign=hexagonal_6c20&utm_content=landing_bottom_cta" target="_blank" rel="noopener">샘플/자료 요청하기</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>EWOO BIO Co., Ltd.</strong><br>
+      Cosmetic ingredients · Technical newsletter · Hexagonal 6C-20
+    </footer>
+  </main>
+</body>
+</html>
