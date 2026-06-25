@@ -305,6 +305,16 @@
     /* ── Submit Button ── */
     .btn-wrap { margin-top: 8px; }
 
+    .privacy-note {
+      padding: 12px 14px;
+      background: #F7F9FC;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text-muted);
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
     button[type="submit"] {
       width: 100%;
       padding: 15px;
@@ -530,6 +540,10 @@
           <label for="memo">메모 - 요청사항<span class="opt">(선택)</span></label>
           <textarea id="memo" name="메모" placeholder="관심 원료명, 필요한 수량, 적용 제품군 등 추가 내용을 자유롭게 작성해주세요"></textarea>
         </div>
+
+        <p class="privacy-note">
+          상담 신청 시 입력하신 정보는 문의 응대 및 영업 담당자 배정을 위해 사용됩니다.
+        </p>
 
         <div class="btn-wrap">
           <button type="submit" id="submit-btn">
