@@ -217,6 +217,81 @@
 
     textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
 
+    .request-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .request-option {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-height: 66px;
+      padding: 13px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      background: #F8FAFD;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
+      user-select: none;
+    }
+
+    .request-option:hover {
+      border-color: var(--accent);
+      background: #F2F7FE;
+    }
+
+    .request-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .request-option .checkmark {
+      width: 18px;
+      height: 18px;
+      border: 1.5px solid var(--border);
+      border-radius: 5px;
+      background: var(--white);
+      flex: 0 0 auto;
+      margin-top: 1px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .request-option strong {
+      display: block;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .request-option span {
+      display: block;
+      margin-top: 3px;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .request-option:has(input:checked) {
+      border-color: var(--accent);
+      background: #EEF5FF;
+      box-shadow: 0 0 0 3px rgba(74,127,193,0.10);
+    }
+
+    .request-option:has(input:checked) .checkmark {
+      background: var(--accent);
+      border-color: var(--accent);
+      box-shadow: inset 0 0 0 4px var(--white);
+    }
+
+    .request-options.error {
+      border-radius: var(--radius);
+      box-shadow: 0 0 0 3px rgba(217,79,79,0.10);
+    }
+
     .field-error {
       font-size: 12px;
       color: var(--error);
@@ -358,6 +433,7 @@
     @media (max-width: 520px) {
       .card { padding: 28px 20px; }
       .form-row { grid-template-columns: 1fr; gap: 20px; }
+      .request-options { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -424,8 +500,35 @@
         </div>
 
         <div class="form-group">
+          <label>요청 항목<span class="req">*</span><span class="opt">여러 개 선택 가능</span></label>
+          <div class="request-options" id="request-options">
+            <label class="request-option">
+              <input type="checkbox" name="requestType" value="샘플 요청" />
+              <i class="checkmark"></i>
+              <span><strong>샘플 요청</strong><span>제품 테스트용 샘플을 받고 싶어요</span></span>
+            </label>
+            <label class="request-option">
+              <input type="checkbox" name="requestType" value="견적 요청" />
+              <i class="checkmark"></i>
+              <span><strong>견적 요청</strong><span>단가, MOQ, 납기 정보를 알고 싶어요</span></span>
+            </label>
+            <label class="request-option">
+              <input type="checkbox" name="requestType" value="주요 서류 요청" />
+              <i class="checkmark"></i>
+              <span><strong>주요 서류 요청</strong><span>TDS, COA, MSDS 등 자료가 필요해요</span></span>
+            </label>
+            <label class="request-option">
+              <input type="checkbox" name="requestType" value="처방 상담" />
+              <i class="checkmark"></i>
+              <span><strong>처방 상담</strong><span>제형 적용 가능성을 상담하고 싶어요</span></span>
+            </label>
+          </div>
+          <span class="field-error" id="err-request">요청 항목을 하나 이상 선택해주세요</span>
+        </div>
+
+        <div class="form-group">
           <label for="memo">메모 - 요청사항<span class="opt">(선택)</span></label>
-          <textarea id="memo" name="메모" placeholder="관심 원료명, 샘플 요청 수량, 문의사항 등을 자유롭게 작성해주세요"></textarea>
+          <textarea id="memo" name="메모" placeholder="관심 원료명, 필요한 수량, 적용 제품군 등 추가 내용을 자유롭게 작성해주세요"></textarea>
         </div>
 
         <div class="btn-wrap">
@@ -513,11 +616,16 @@
     const company = document.getElementById('company').value.trim();
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
+    const requestTypes = [...document.querySelectorAll('input[name="requestType"]:checked')];
 
     setError('name', 'err-name', !name); if (!name) ok = false;
     setError('company', 'err-company', !company); if (!company) ok = false;
     setError('email', 'err-email', !validateEmail(email)); if (!validateEmail(email)) ok = false;
     setError('phone', 'err-phone', !validatePhone(phone)); if (!validatePhone(phone)) ok = false;
+    const requestMissing = requestTypes.length === 0;
+    document.getElementById('request-options').classList.toggle('error', requestMissing);
+    document.getElementById('err-request').classList.toggle('show', requestMissing);
+    if (requestMissing) ok = false;
 
     return ok;
   }
@@ -528,6 +636,13 @@
       document.getElementById(id).classList.remove('error');
       const err = document.getElementById('err-' + id);
       if (err) err.classList.remove('show');
+    });
+  });
+
+  document.querySelectorAll('input[name="requestType"]').forEach((input) => {
+    input.addEventListener('change', () => {
+      document.getElementById('request-options').classList.remove('error');
+      document.getElementById('err-request').classList.remove('show');
     });
   });
 
@@ -558,6 +673,7 @@
       직함: document.getElementById('title').value.trim(),
       '전자 메일 주소': document.getElementById('email').value.trim(),
       휴대폰: document.getElementById('phone').value.trim(),
+      '요청 항목': [...document.querySelectorAll('input[name="requestType"]:checked')].map(input => input.value).join(', '),
       메모: document.getElementById('memo').value.trim(),
       ...getTrackingData(),
     };
@@ -593,6 +709,8 @@
 
   function resetForm() {
     form.reset();
+    document.getElementById('request-options').classList.remove('error');
+    document.getElementById('err-request').classList.remove('show');
     document.getElementById('form-wrap').style.display = 'block';
     document.getElementById('success-screen').style.display = 'none';
     submitBtn.disabled = false;
