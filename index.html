@@ -650,7 +650,6 @@
       '유입 URL': window.location.href,
       '유입 경로': document.referrer || '',
       '관심 제품': product.name,
-      '제품 코드': product.code,
     };
 
     UTM_KEYS.forEach((key) => {
@@ -753,7 +752,7 @@
     const selectedRequestTypes = [...document.querySelectorAll('input[name="requestType"]:checked')].map(input => input.value).join(', ');
     const memoText = document.getElementById('memo').value.trim();
     const product = getProductData();
-    const productLine = product.name ? `[관심 제품] ${product.name}${product.code ? ` (${product.code})` : ''}\n` : '';
+    const productLine = product.name ? `[관심 제품] ${product.name}\n` : '';
     const combinedMemo = `${productLine}[요청 항목] ${selectedRequestTypes}\n[추가 메모] ${memoText || '-'}`;
 
     const data = {
@@ -764,7 +763,6 @@
       '전자 메일 주소': document.getElementById('email').value.trim(),
       휴대폰: document.getElementById('phone').value.trim(),
       '관심 제품': product.name,
-      '제품 코드': product.code,
       '요청 항목': selectedRequestTypes,
       메모: combinedMemo,
       ...getTrackingData(),
@@ -784,8 +782,7 @@
             cta_position: data.utm_content || '',
             source: data.utm_source || '',
             medium: data.utm_medium || '',
-            product_name: data['관심 제품'] || '',
-            product_code: data['제품 코드'] || ''
+            product_name: data['관심 제품'] || ''
           });
         }
         document.getElementById('form-wrap').style.display = 'none';
