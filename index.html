@@ -157,6 +157,38 @@
       border-radius: 2px;
     }
 
+    .product-context {
+      margin: -8px 0 24px;
+      padding: 14px 16px;
+      border: 1px solid #C8D8EC;
+      border-radius: var(--radius);
+      background: #F6FAFF;
+    }
+
+    .product-context[hidden] { display: none; }
+
+    .product-context .context-label {
+      display: block;
+      color: var(--text-muted);
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .product-context strong {
+      display: block;
+      color: var(--navy);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .product-context p {
+      margin-top: 5px;
+      color: var(--text-muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
     /* ── Form ── */
     .form-grid { display: flex; flex-direction: column; gap: 20px; }
 
@@ -466,6 +498,11 @@
 <div class="card-wrap">
   <div class="card">
     <div class="card-title">신청 정보 입력</div>
+    <div class="product-context" id="product-context" hidden>
+      <span class="context-label">상담 제품</span>
+      <strong id="product-context-name"></strong>
+      <p>선택하신 제품 정보가 상담 요청과 함께 영업팀에 전달됩니다.</p>
+    </div>
 
     <div id="form-wrap">
       <form id="contact-form" class="form-grid" novalidate>
@@ -575,16 +612,45 @@
   // ── Replace this with your deployed Apps Script Web App URL ──
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyg3aoEc0P5FRuFM6NEaj6udvdgm_Nzd-ndUXCB87IkVHrLhz6iXg1JXpU1kpI6pO-yRg/exec';
   const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  const PRODUCT_MAP = {
+    hexagonal_6c20: 'Hexagonal 6C-20',
+    'hexagonal-6c20': 'Hexagonal 6C-20',
+    ceramide_6c20: 'Hexagonal 6C-20',
+    'ceramide-6c20': 'Hexagonal 6C-20',
+  };
 
   const form = document.getElementById('contact-form');
   const submitBtn = document.getElementById('submit-btn');
   const toast = document.getElementById('toast');
+  const productContext = document.getElementById('product-context');
+  const productContextName = document.getElementById('product-context-name');
+
+  function normalizeProductCode(value) {
+    return (value || '').trim().toLowerCase().replace(/\s+/g, '_');
+  }
+
+  function getProductData() {
+    const params = new URLSearchParams(window.location.search);
+    const rawCode = normalizeProductCode(params.get('product') || params.get('product_code'));
+    const rawName = (params.get('product_name') || '').trim();
+    const campaign = normalizeProductCode(params.get('utm_campaign'));
+    const code = rawCode || campaign;
+    const name = rawName || PRODUCT_MAP[code] || PRODUCT_MAP[campaign] || '';
+
+    return {
+      code,
+      name,
+    };
+  }
 
   function getTrackingData() {
     const params = new URLSearchParams(window.location.search);
+    const product = getProductData();
     const tracking = {
       '유입 URL': window.location.href,
       '유입 경로': document.referrer || '',
+      '관심 제품': product.name,
+      '제품 코드': product.code,
     };
 
     UTM_KEYS.forEach((key) => {
@@ -592,6 +658,13 @@
     });
 
     return tracking;
+  }
+
+  function renderProductContext() {
+    const product = getProductData();
+    if (!product.name) return;
+    productContextName.textContent = product.name;
+    productContext.hidden = false;
   }
 
   function showToast(msg, type = 'success') {
@@ -679,7 +752,9 @@
 
     const selectedRequestTypes = [...document.querySelectorAll('input[name="requestType"]:checked')].map(input => input.value).join(', ');
     const memoText = document.getElementById('memo').value.trim();
-    const combinedMemo = `[요청 항목] ${selectedRequestTypes}\n[추가 메모] ${memoText || '-'}`;
+    const product = getProductData();
+    const productLine = product.name ? `[관심 제품] ${product.name}${product.code ? ` (${product.code})` : ''}\n` : '';
+    const combinedMemo = `${productLine}[요청 항목] ${selectedRequestTypes}\n[추가 메모] ${memoText || '-'}`;
 
     const data = {
       이름: document.getElementById('name').value.trim(),
@@ -688,6 +763,8 @@
       직함: document.getElementById('title').value.trim(),
       '전자 메일 주소': document.getElementById('email').value.trim(),
       휴대폰: document.getElementById('phone').value.trim(),
+      '관심 제품': product.name,
+      '제품 코드': product.code,
       '요청 항목': selectedRequestTypes,
       메모: combinedMemo,
       ...getTrackingData(),
@@ -706,7 +783,9 @@
             campaign: data.utm_campaign || '',
             cta_position: data.utm_content || '',
             source: data.utm_source || '',
-            medium: data.utm_medium || ''
+            medium: data.utm_medium || '',
+            product_name: data['관심 제품'] || '',
+            product_code: data['제품 코드'] || ''
           });
         }
         document.getElementById('form-wrap').style.display = 'none';
@@ -731,6 +810,8 @@
     submitBtn.disabled = false;
     submitBtn.classList.remove('loading');
   }
+
+  renderProductContext();
 </script>
 </body>
 </html>
