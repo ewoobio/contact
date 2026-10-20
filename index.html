@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>원료 상담 신청 | 이우바이오</title>
+  <title>ìë£ ìë´ ì ì²­ | ì´ì°ë°ì´ì¤</title>
   <script>
     const GA_MEASUREMENT_ID = 'G-5R7K27LCMW';
     if (GA_MEASUREMENT_ID) {
@@ -47,7 +47,7 @@
       flex-direction: column;
     }
 
-    /* ── Header ── */
+    /* ââ Header ââ */
     header {
       background: var(--navy);
       padding: 18px 24px;
@@ -81,7 +81,7 @@
       letter-spacing: -0.3px;
     }
 
-    /* ── Hero ── */
+    /* ââ Hero ââ */
     .hero {
       background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
       padding: 52px 24px 48px;
@@ -119,7 +119,7 @@
       margin: 0 auto;
     }
 
-    /* ── Card ── */
+    /* ââ Card ââ */
     .card-wrap {
       flex: 1;
       display: flex;
@@ -189,7 +189,7 @@
       line-height: 1.5;
     }
 
-    /* ── Form ── */
+    /* ââ Form ââ */
     .form-grid { display: flex; flex-direction: column; gap: 20px; }
 
     .form-row {
@@ -334,7 +334,7 @@
 
     .field-error.show { display: flex; }
 
-    /* ── Submit Button ── */
+    /* ââ Submit Button ââ */
     .btn-wrap { margin-top: 2px; }
 
     .privacy-note {
@@ -381,7 +381,7 @@
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── Toast / Alert ── */
+    /* ââ Toast / Alert ââ */
     #toast {
       position: fixed;
       bottom: 28px;
@@ -410,7 +410,7 @@
     #toast.success { background: var(--success); }
     #toast.error-toast { background: var(--error); }
 
-    /* ── Success Screen ── */
+    /* ââ Success Screen ââ */
     #success-screen {
       display: none;
       flex-direction: column;
@@ -459,7 +459,7 @@
 
     .btn-reset:hover { background: var(--navy); color: white; }
 
-    /* ── Footer ── */
+    /* ââ Footer ââ */
     footer {
       text-align: center;
       padding: 20px;
@@ -468,7 +468,7 @@
       border-top: 1px solid var(--border);
     }
 
-    /* ── Responsive ── */
+    /* ââ Responsive ââ */
     @media (max-width: 520px) {
       .card { padding: 28px 20px; }
       .form-row { grid-template-columns: 1fr; gap: 20px; }
@@ -485,23 +485,23 @@
         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#1B3A6B"/>
       </svg>
     </div>
-    <span class="logo-text">이우바이오</span>
+    <span class="logo-text">ì´ì°ë°ì´ì¤</span>
   </div>
 </header>
 
 <div class="hero">
   <div class="hero-badge">Cosmetic Ingredients</div>
-  <h1>원료 상담 신청</h1>
-  <p>화장품 원료 관련 샘플 요청, 견적 문의 등<br>아래 양식을 작성해주시면 담당자가 연락드립니다</p>
+  <h1>ìë£ ìë´ ì ì²­</h1>
+  <p>íì¥í ìë£ ê´ë ¨ ìí ìì²­, ê²¬ì  ë¬¸ì ë±<br>ìë ììì ìì±í´ì£¼ìë©´ ë´ë¹ìê° ì°ë½ëë¦½ëë¤</p>
 </div>
 
 <div class="card-wrap">
   <div class="card">
-    <div class="card-title">신청 정보 입력</div>
+    <div class="card-title">ì ì²­ ì ë³´ ìë %</div>
     <div class="product-context" id="product-context" hidden>
-      <span class="context-label">상담 제품</span>
+      <span class="context-label">ìë´ ì í</span>
       <strong id="product-context-name"></strong>
-      <p>선택하신 제품 정보가 상담 요청과 함께 영업팀에 전달됩니다.</p>
+      <p>ì ííì  ì í ì ë³´ê° ìë´ ìì²­ê³¼ í¨ê» ììíì ì ë¬ë©ëë¤.</p>
     </div>
 
     <div id="form-wrap">
@@ -509,79 +509,79 @@
 
         <div class="form-row">
           <div class="form-group">
-            <label for="name">이름<span class="req">*</span></label>
-            <input type="text" id="name" name="이름" placeholder="홍길동" autocomplete="name" />
-            <span class="field-error" id="err-name">이름을 입력해주세요</span>
+            <label for="name">ì´ë¦<span class="req">*</span></label>
+            <input type="text" id="name" name="ì´ë¦" placeholder="íê¸¸ë" autocomplete="name" />
+            <span class="field-error" id="err-name">ì´ë¦ì ìë ¥í´ì£¼ì¸ì</span>
           </div>
           <div class="form-group">
-            <label for="company">회사<span class="req">*</span></label>
-            <input type="text" id="company" name="회사" placeholder="(주)이우바이오" autocomplete="organization" />
-            <span class="field-error" id="err-company">회사명을 입력해주세요</span>
+            <label for="company">íì¬<span class="req">*</span></label>
+            <input type="text" id="company" name="íì¬" placeholder="(ì£¼)ì´ì°ë°ì´ì¤" autocomplete="organization" />
+            <span class="field-error" id="err-company">íì¬ëªì ìë ¥í´ì£¼ì¸ì</span>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group">
-            <label for="dept">부서<span class="opt">(선택)</span></label>
-            <input type="text" id="dept" name="부서" placeholder="연구개발팀" />
+            <label for="dept">ë¶ì<span class="opt">(ì í)</span></label>
+            <input type="text" id="dept" name="ë¶ì" placeholder="ì°êµ¬ê°ë°í" />
           </div>
           <div class="form-group">
-            <label for="title">직함<span class="opt">(선택)</span></label>
-            <input type="text" id="title" name="직함" placeholder="연구원" />
+            <label for="title">ì§í¨<span class="opt">(ì í)</span></label>
+            <input type="text" id="title" name="ì§í¨" placeholder="ì°êµ¬ì" />
           </div>
         </div>
 
         <div class="form-group">
-          <label for="email">전자 메일 주소<span class="req">*</span></label>
-          <input type="email" id="email" name="전자 메일 주소" placeholder="example@company.com" autocomplete="email" />
-          <span class="field-error" id="err-email">올바른 이메일 주소를 입력해주세요</span>
+          <label for="email">ì ì ë©ì¼ ì£¼ì<span class="req">*</span></label>
+          <input type="email" id="email" name="ì ì ë©ì¼ ì£¼ì" placeholder="example@company.com" autocomplete="email" />
+          <span class="field-error" id="err-email">ì¬ë°ë¥¸ ì´ë©ì¼ ì£¼ìë¥¼ ìë ¥í´ì£¼ì¸ì</span>
         </div>
 
         <div class="form-group">
-          <label for="phone">휴대폰<span class="req">*</span></label>
-          <input type="tel" id="phone" name="휴대폰" placeholder="010-0000-0000" autocomplete="tel" inputmode="numeric" />
-          <span class="field-error" id="err-phone">올바른 휴대폰 번호를 입력해주세요</span>
+          <label for="phone">í´ëí°<span class="req">*</span></label>
+          <input type="tel" id="phone" name="í´ëí°" placeholder="010-0000-0000" autocomplete="tel" inputmode="numeric" />
+          <span class="field-error" id="err-phone">ì¬ë°ë¥¸ í´ëí° ë²í¸ë¥¼ ìë ¥í´ì£¼ì¸ì</span>
         </div>
 
         <div class="form-group">
-          <label>요청 항목<span class="req">*</span><span class="opt">여러 개 선택 가능</span></label>
+          <label>ìì²­ í­ëª©<span class="req">*</span><span class="opt">ì¬ë¬ ê° ì í ê°ë¥</span></label>
           <div class="request-options" id="request-options">
             <label class="request-option">
-              <input type="checkbox" name="requestType" value="샘플 요청" />
+              <input type="checkbox" name="requestType" value="ìí ìì²­" />
               <i class="checkmark"></i>
-              <span><strong>샘플 요청</strong><span>제품 테스트용 샘플을 받고 싶어요</span></span>
+              <span><strong>ìí ìì²­</strong><span>ì í íì¤í¸ì© ìíì ë°ê³  ì¶ì´ì</span></span>
             </label>
             <label class="request-option">
-              <input type="checkbox" name="requestType" value="견적 요청" />
+              <input type="checkbox" name="requestType" value="ê²¬ì  ìì²­" />
               <i class="checkmark"></i>
-              <span><strong>견적 요청</strong><span>단가, MOQ, 납기 정보를 알고 싶어요</span></span>
+              <span><strong>ê²¬ì  ìì²­</strong><span>ë¨ê°, MOQ, ë©ê¸° ì ë³´ë¥¼ ìê³  ì¶ì´ì</span></span>
             </label>
             <label class="request-option">
-              <input type="checkbox" name="requestType" value="주요 서류 요청" />
+              <input type="checkbox" name="requestType" value="ì£¼ì ìë¥ ìì²­" />
               <i class="checkmark"></i>
-              <span><strong>주요 서류 요청</strong><span>TDS, COA, MSDS 등 자료가 필요해요</span></span>
+              <span><strong>ì£¼ì ìë¥ ìì²­</strong><span>TDS, COA, MSDS ë± ìë£ê° íìí´ì</span></span>
             </label>
             <label class="request-option">
-              <input type="checkbox" name="requestType" value="처방 상담" />
+              <input type="checkbox" name="requestType" value="ì²ë°© ìë´" />
               <i class="checkmark"></i>
-              <span><strong>처방 상담</strong><span>제형 적용 가능성을 상담하고 싶어요</span></span>
+              <span><strong>ì²ë°© ìë´</strong><span>ì í ì ì© ê°ë¥ì±ì ìë´íê³  ì¶ì´ì</span></span>
             </label>
           </div>
-          <span class="field-error" id="err-request">요청 항목을 하나 이상 선택해주세요</span>
+          <span class="field-error" id="err-request">ìì²­ í­ëª©ì íë ì´ì ì íí´ì£¼ì¸ì</span>
         </div>
 
         <div class="form-group">
-          <label for="memo">메모 - 요청사항<span class="opt">(선택)</span></label>
-          <textarea id="memo" name="메모" placeholder="관심 원료명, 필요한 수량, 적용 제품군 등 추가 내용을 자유롭게 작성해주세요"></textarea>
+          <label for="memo">ë©ëª¨ - ìì²­ì¬í­<span class="opt">(ì í)</span></label>
+          <textarea id="memo" name="ë©ëª¨" placeholder="ê´ì¬ ìë£ëª, íìí ìë, ì ì© ì íêµ° ë± ì¶ê° ë´ì©ì ìì ë¡­ê² ìì±í´ì£¼ì¸ì"></textarea>
         </div>
 
         <p class="privacy-note">
-          상담 신청 시 입력하신 정보는 문의 응대 및 영업 담당자 배정을 위해 사용됩니다.
+          ìë´ ì ì²­ ì ìë ¥íì  ì ë³´ë ë¬¸ì ìë ë° ìì ë´ë¹ì ë°°ì ì ìí´ ì¬ì©ë©ëë¤.
         </p>
 
         <div class="btn-wrap">
           <button type="submit" id="submit-btn">
-            <span class="btn-text">상담 신청하기</span>
+            <span class="btn-text">ìë´ ì ì²­íê¸°</span>
             <div class="spinner"></div>
           </button>
         </div>
@@ -595,21 +595,21 @@
           <path d="M20 6L9 17l-5-5"/>
         </svg>
       </div>
-      <h2>신청이 완료되었습니다!</h2>
-      <p>담당자가 확인 후 빠른 시일 내에<br>연락드리겠습니다. 감사합니다.</p>
-      <button class="btn-reset" onclick="resetForm()">다시 작성하기</button>
+      <h2>ì ì²­ì´ ìë£ëììµëë¤!</h2>
+      <p>ë´ë¹ìê° íì¸ í ë¹ ë¥¸ ìì¼ ë´ì<br>ì°ë½ëë¦¬ê² ìµëë¤. ê°ì¬í©ëë¤.</p>
+      <button class="btn-reset" onclick="resetForm()">ë¤ì ìì±íê¸°</button>
     </div>
   </div>
 </div>
 
 <footer>
-  &copy; 2025 이우바이오. All rights reserved.
+  &copy; 2025 ì´ì°ë°ì´ì¤. All rights reserved.
 </footer>
 
 <div id="toast"></div>
 
   <script>
-  // ── Replace this with your deployed Apps Script Web App URL ──
+  // ââ Replace this with your deployed Apps Script Web App URL ââ
   const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxDF5477VGu331_6TvWGnSq0ZslXB_MOM89fH5iAZJKhpPTQrCkTZ_8cBE7PIJm9X4cfQ/exec';
   const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
   const PRODUCT_MAP = {
@@ -617,6 +617,22 @@
     'hexagonal-6c20': 'Hexagonal 6C-20',
     ceramide_6c20: 'Hexagonal 6C-20',
     'ceramide-6c20': 'Hexagonal 6C-20',
+    VivaScentz: 'VivaScentzâ¢',
+    vivascentz: 'VivaScentzâ¢',
+    DreamScentz: 'DreamScentzÂ®',
+    dreamscentz: 'DreamScentzÂ®',
+    'YouZap-FabZap': 'YouZapÂ® Â· FabZapÂ®',
+    'youzap-fabzap': 'YouZapÂ® Â· FabZapÂ®',
+    YouZap: 'YouZapÂ®',
+    youzap: 'YouZapÂ®',
+    FabZap: 'FabZapÂ®',
+    fabzap: 'FabZapÂ®',
+    Phytogaia: 'PhytogaiaÂ®',
+    phytogaia: 'PhytogaiaÂ®',
+    Geogaia: 'Geogaiaâ¢',
+    geogaia: 'Geogaiaâ¢',
+    ScalpSure: 'ScalpSureâ¢',
+    scalpsure: 'ScalpSureâ¢',
   };
 
   const form = document.getElementById('contact-form');
@@ -647,9 +663,9 @@
     const params = new URLSearchParams(window.location.search);
     const product = getProductData();
     const tracking = {
-      '유입 URL': window.location.href,
-      '유입 경로': document.referrer || '',
-      '관심 제품': product.name,
+      'ì ì URL': window.location.href,
+      'ì ì ê²½ë¡': document.referrer || '',
+      'ê´ì¬ ì í': product.name,
     };
 
     UTM_KEYS.forEach((key) => {
@@ -742,7 +758,7 @@
     if (!validate()) return;
 
     if (SCRIPT_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL') {
-      showToast('Apps Script URL을 설정해주세요 (index.html 상단 SCRIPT_URL)', 'error');
+      showToast('Apps Script URLì ì¤ì í´ì£¼ì¸ì (index.html ìë¨ SCRIPT_URL)', 'error');
       return;
     }
 
@@ -752,19 +768,19 @@
     const selectedRequestTypes = [...document.querySelectorAll('input[name="requestType"]:checked')].map(input => input.value).join(', ');
     const memoText = document.getElementById('memo').value.trim();
     const product = getProductData();
-    const productLine = product.name ? `[관심 제품] ${product.name}\n` : '';
-    const combinedMemo = `${productLine}[요청 항목] ${selectedRequestTypes}\n[추가 메모] ${memoText || '-'}`;
+    const productLine = product.name ? `[ê´ì¬ ì í] ${product.name}\n` : '';
+    const combinedMemo = `${productLine}[ìì²­ í­ëª©] ${selectedRequestTypes}\n[ì¶ê° ë©ëª¨] ${memoText || '-'}`;
 
     const data = {
-      이름: document.getElementById('name').value.trim(),
-      회사: document.getElementById('company').value.trim(),
-      부서: document.getElementById('dept').value.trim(),
-      직함: document.getElementById('title').value.trim(),
-      '전자 메일 주소': document.getElementById('email').value.trim(),
-      휴대폰: document.getElementById('phone').value.trim(),
-      '관심 제품': product.name,
-      '요청 항목': selectedRequestTypes,
-      메모: combinedMemo,
+      ì´ë¦: document.getElementById('name').value.trim(),
+      íì¬: document.getElementById('company').value.trim(),
+      íì¬: document.getElementById('dept').value.trim(),
+      ì§í¨: document.getElementById('title').value.trim(),
+      'ì ì ë©ì¼ ì£¼ì': document.getElementById('email').value.trim(),
+      í´ëí°: document.getElementById('phone').value.trim(),
+      'ê´ì¬ ì í': product.name,
+      'ìì²­ í­ëª©': selectedRequestTypes,
+      ë©ëª¨: combinedMemo,
       ...getTrackingData(),
     };
 
@@ -782,17 +798,17 @@
             cta_position: data.utm_content || '',
             source: data.utm_source || '',
             medium: data.utm_medium || '',
-            product_name: data['관심 제품'] || ''
+            product_name: data['ê´ì¬ ì í'] || ''
           });
         }
         document.getElementById('form-wrap').style.display = 'none';
         document.getElementById('success-screen').style.display = 'flex';
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else {
-        throw new Error(json.error || '오류가 발생했습니다');
+        throw new Error(json.error || 'ì¤ë¥ê° ë°ìíìµëë¤');
       }
     } catch (err) {
-      showToast('제출 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.', 'error');
+      showToast('ì ì¶ ì¤ ì¤ë¥ê° ë°ìíìµëë¤. ì ì í ë¤ì ìëí´ì£¼ì¸ì.', 'error');
       submitBtn.disabled = false;
       submitBtn.classList.remove('loading');
     }
@@ -809,6 +825,16 @@
   }
 
   renderProductContext();
+  function preselectRequestType() {
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get('type');
+    if (!type) return;
+    const checkboxes = document.querySelectorAll('input[name="requestType"]');
+    checkboxes.forEach(cb => {
+      if (cb.value === type) cb.checked = true;
+    });
+  }
+  preselectRequestType();
 </script>
 </body>
 </html>
