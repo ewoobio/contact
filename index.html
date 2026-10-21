@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>향료 상담 신청 | 이우바이오</title>
+  <title>원료 상담 신청 | 이우바이오</title>
   <script>
     const GA_MEASUREMENT_ID = 'G-5R7K27LCMW';
     if (GA_MEASUREMENT_ID) {
       const gaScript = document.createElement('script');
-      gaScript.async = true;
+      gaScript.async = true
       gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
       document.head.appendChild(gaScript);
       window.dataLayer = window.dataLayer || [];
@@ -96,101 +96,103 @@
       color: var(--white);
       font-size: 12px;
       font-weight: 600;
-      letter-spacing: 1px;
-      padding: 5px 14px;
+      letter-spacing: 1px 4px;
+      padding: 6px 14px;
       border-radius: 20px;
       margin-bottom: 20px;
-      text-transform: uppercase;
     }
 
     .hero h1 {
-      font-size: clamp(26px, 5vw, 38px);
+      font-size: clamp(22px, 5vw, 32px);
       font-weight: 800;
-      letter-spacing: -0.8px;
-      margin-bottom: 16px;
-      line-height: 1.25;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      line-height: 1.2;
     }
 
     .hero p {
-      font-size: clamp(14px, 2.5vw, 16px);
-      color: rgba(255,255,255,0.82);
-      line-height: 1.7;
-      max-width: 500px;
+      font-size: 15px;
+      opacity: 0.85;
+      max-width: 480px;
       margin: 0 auto;
+      line-height: 1.6;
     }
 
     /* ── Card ── */
-    .card-wrap {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      padding: 40px 16px 60px;
-    }
-
     .card {
       background: var(--white);
       border-radius: 16px;
       box-shadow: var(--shadow);
-      width: 100%;
-      max-width: 560px;
-      padding: 40px 36px;
+      padding: 32px 28px;
+      max-width: 640px;
+      margin: -28px auto 40px;
+      position: relative;
     }
 
     .card-title {
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--navy);
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       padding-bottom: 16px;
       border-bottom: 2px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .card-title::before {
-      content: '';
-      display: inline-block;
-      width: 4px;
-      height: 18px;
-      background: var(--navy);
-      border-radius: 2px;
-    }
-
-    .product-context {
-      margin: -8px 0 24px;
-      padding: 14px 16px;
-      border: 1px solid #C8D8EC;
-      border-radius: var(--radius);
-      background: #F6FAFF;
-    }
-
-    .product-context[hidden] { display: none; }
-
-    .product-context .context-label {
-      display: block;
-      color: var(--text-muted);
-      font-size: 12px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .product-context strong {
-      display: block;
-      color: var(--navy);
-      font-size: 16px;
-      line-height: 1.45;
-    }
-
-    .product-context p {
-      margin-top: 5px;
-      color: var(--text-muted);
-      font-size: 12px;
-      line-height: 1.5;
     }
 
     /* ── Form ── */
-    .form-grid { display: flex; flex-direction: column; gap: 20px; }
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    label .req {
+      color: var(--error);
+      margin-left: 2px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 14px;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      font-family: inherit;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="tel"]:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(74,127,193,0.12);
+    }
+
+    input[type="text"]::placeholder,
+    input[type="email"]::placeholder,
+    input[type="tel"]::placeholder,
+    textarea::placeholder {
+      color: #B0BCC8;
+    }
+
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
 
     .form-row {
       display: grid;
@@ -198,57 +200,9 @@
       gap: 16px;
     }
 
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
 
-    label {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--text);
-    }
-
-    .req {
-      color: var(--accent);
-      margin-left: 2px;
-    }
-
-    .opt {
-      font-weight: 400;
-      color: var(--text-muted);
-      font-size: 12px;
-      margin-left: 4px;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius);
-      font-size: 14px;
-      font-family: inherit;
-      color: var(--text);
-      background: var(--white);
-      transition: border-color 0.2s, box-shadow 0.2s;
-      outline: none;
-      -webkit-appearance: none;
-    }
-
-    input::placeholder, textarea::placeholder {
-      color: #AABBCC;
-      font-size: 13px;
-    }
-
-    input:focus, textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(74,127,193,0.15);
-    }
-
-    input.error, textarea.error {
-      border-color: var(--error);
-      box-shadow: 0 0 0 3px rgba(217,79,79,0.10);
-    }
-
-    textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
-
+    /* ── Request options ── */
     .request-options {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -268,6 +222,7 @@
       cursor: pointer;
       transition: border-color 0.2s, background 0.2s, box-shadow 0.2s;
       user-select: none;
+      -webkit-user-select: none;
     }
 
     .request-option:hover {
@@ -275,13 +230,11 @@
       background: #F2F7FE;
     }
 
-    .request-option input {
-      position: absolute;
-      opacity: 0;
-      pointer-events: none;
+    .request-option input[type="checkbox"] {
+      display: none;
     }
 
-    .request-option .checkmark {
+    .request-option .check-icon {
       width: 18px;
       height: 18px;
       border: 1.5px solid var(--border);
@@ -292,68 +245,49 @@
       transition: background 0.2s, border-color 0.2s;
     }
 
-    .request-option strong {
-      display: block;
-      color: var(--text);
-      font-size: 14px;
-      line-height: 1.35;
-    }
-
-    .request-option span {
-      display: block;
-      margin-top: 3px;
-      color: var(--text-muted);
-      font-size: 12px;
-      line-height: 1.45;
-    }
-
-    .request-option:has(input:checked) {
+    .request-option.selected {
       border-color: var(--accent);
       background: #EEF5FF;
       box-shadow: 0 0 0 3px rgba(74,127,193,0.10);
     }
 
-    .request-option:has(input:checked) .checkmark {
+    .request-option.selected .check-icon {
       background: var(--accent);
       border-color: var(--accent);
       box-shadow: inset 0 0 0 4px var(--white);
     }
 
-    .request-options.error {
-      border-radius: var(--radius);
-      box-shadow: 0 0 0 3px rgba(217,79,79,0.10);
-    }
-
+    /* ── Input/Textarea error ── */
     .field-error {
       font-size: 12px;
       color: var(--error);
+      margin-top: 5px;
       display: none;
-      align-items: center;
-      gap: 4px;
     }
 
-    .field-error.show { display: flex; }
-
-    /* ── Submit Button ── */
-    .btn-wrap { margin-top: 2px; }
-
-    .privacy-note {
-      margin-top: -6px;
-      color: var(--text-muted);
-      font-size: 12px;
-      line-height: 1.5;
+    .has-error input,
+    .has-error textarea {
+      border-color: var(--error);
     }
 
-    button[type="submit"] {
+    .has-error .field-error {
+      display: block;
+    }
+
+    /* ── Submit ── */
+    .submit-wrap {
+      margin-top: 28px;
+    }
+
+    .btn-submit {
       width: 100%;
       padding: 15px;
       background: var(--navy);
       color: var(--white);
-      font-size: 15px;
-      font-weight: 700;
-      font-family: inherit;
       border: none;
       border-radius: var(--radius);
+      font-size: 16px;
+      font-weight: 700;
       cursor: pointer;
       transition: background 0.2s, transform 0.1s;
       letter-spacing: -0.2px;
@@ -363,469 +297,474 @@
       gap: 8px;
     }
 
-    button[type="submit"]:hover { background: var(--navy-light); }
-    button[type="submit"]:active { transform: scale(0.99); }
-    button[type="submit"]:disabled { background: #8A9AB5; cursor: not-allowed; }
+    .btn-submit:hover { background: var(--navy-light); }
+    .btn-submit:active { transform: scale(0.99); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; }
 
+    /* ── Spinner ── */
     .spinner {
-      width: 18px; height: 18px;
-      border: 2px solid rgba(255,255,255,0.4);
+      width: 18px;
+      height: 18px;
+      border: 2px solid rgba(255,255,255,0.35);
       border-top-color: white;
       border-radius: 50%;
       animation: spin 0.7s linear infinite;
       display: none;
     }
-
-    button[type="submit"].loading .spinner { display: block; }
-    button[type="submit"].loading .btn-text { display: none; }
-
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* ── Toast / Alert ── */
-    #toast {
+    /* ── Toast ── */
+    .toast {
       position: fixed;
-      bottom: 28px;
+      bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(80px);
       background: var(--navy-dark);
       color: white;
-      padding: 14px 24px;
+      padding: 12px 24px;
       border-radius: 10px;
       font-size: 14px;
-      font-weight: 600;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.22);
-      transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), opacity 0.3s;
-      opacity: 0;
+      font-weight: 500;
       z-index: 9999;
-      text-align: center;
-      max-width: 90vw;
-      pointer-events: none;
+      transition: transform 0.3s ease;
+      white-space: nowrap;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+    .toast.error { background: var(--error); }
 
-    #toast.show {
-      transform: translateX(-50%) translateY(0);
-      opacity: 1;
-    }
-
-    #toast.success { background: var(--success); }
-    #toast.error-toast { background: var(--error); }
-
-    /* ── Success Screen ── */
-    #success-screen {
+    /* ── Success screen ── */
+    .success-screen {
       display: none;
-      flex-direction: column;
-      align-items: center;
       text-align: center;
-      padding: 20px 0 10px;
-      gap: 16px;
+      padding: 40px 20px;
     }
-
     .success-icon {
-      width: 64px; height: 64px;
+      width: 64px;
+      height: 64px;
       background: rgba(46,125,82,0.1);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
+      margin: 0 auto 20px;
     }
 
-    .success-icon svg { width: 34px; height: 34px; color: var(--success); }
+    .success-icon svg {
+      width: 32px;
+      height: 32px;
+      color: var(--success);
+    }
 
-    #success-screen h2 {
-      font-size: 20px;
+    .success-screen h2 {
+      font-size: 22px;
       font-weight: 800;
       color: var(--navy);
+      margin-bottom: 10px;
     }
 
-    #success-screen p {
-      font-size: 14px;
+    .success-screen p {
       color: var(--text-muted);
-      line-height: 1.7;
+      font-size: 14px;
+      line-height: 1.6;
+      margin-bottom: 24px;
     }
 
-    .btn-reset {
-      margin-top: 8px;
-      padding: 10px 28px;
+    .btn-again {
+      padding: 11px 28px;
       background: transparent;
       border: 1.5px solid var(--navy);
-      color: var(--navy);
-      font-size: 13px;
-      font-weight: 700;
-      font-family: inherit;
       border-radius: var(--radius);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 600;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: all 0.2s;
     }
-
-    .btn-reset:hover { background: var(--navy); color: white; }
+    .btn-again:hover { background: var(--navy); color: white; }
 
     /* ── Footer ── */
     footer {
+      margin-top: auto;
+      padding: 24px;
       text-align: center;
-      padding: 20px;
       font-size: 12px;
       color: var(--text-muted);
-      border-top: 1px solid var(--border);
     }
 
+    footer a { color: var(--accent); text-decoration: none; }
+
     /* ── Responsive ── */
-    @media (max-width: 520px) {
-      .card { padding: 28px 20px; }
-      .form-row { grid-template-columns: 1fr; gap: 20px; }
-      .request-options { grid-template-columns: 1fr; }
+    @media (max-width: 680px) {
+      .card {
+        margin: -20px 16px 32px;
+        padding: 24px 20px;
+        border-radius: 12px;
+      }
     }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="logo-wrap">
-    <div class="logo-icon">
-      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#1B3A6B"/>
-      </svg>
+  <!-- Header -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1B3A6B" stroke-width="2.2">
+          <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+          <path d="M2 17l10 5 10-5"/>
+          <path d="M2 12l10 5 10-5"/>
+        </svg>
+      </div>
+      <span class="logo-text">이우바이오</span>
     </div>
-    <span class="logo-text">이우바이오</span>
-  </div>
-</header>
+  </header>
 
-<div class="hero">
-  <div class="hero-badge">Fragrances</div>
-  <h1>향료 상담 신청</h1>
-  <p>지보단 향료 샘플 요청, 견적 문의 등<br>아래 양식을 작성해주시면 담당자가 연락드립니다</p>
-</div>
+  <!-- Hero -->
+  <section class="hero">
+    <span class="hero-badge">COSMETIC INGREDIENTS</span>
+    <h1>원료 상담 신청</h1>
+    <p>샘플 요청, 견적 문의, 처방 상담 등<br>아래 양식을 작성해주시면 담당자가 연락드립니다</p>
+  </section>
 
-<div class="card-wrap">
+  <!-- Form Card -->
   <div class="card">
-    <div class="card-title">신청 정보 입력</div>
-    <div class="product-context" id="product-context" hidden>
-      <span class="context-label">상담 제품</span>
-      <strong id="product-context-name"></strong>
-      <p>선택하신 제품 정보가 상담 요청과 함께 영업팀에 전달됩니다.</p>
-    </div>
+    <div id="formWrap">
+      <div class="card-title">상담 신청 정보 입력</div>
+      <form id="contactForm" novalidate>
 
-    <div id="form-wrap">
-      <form id="contact-form" class="form-grid" novalidate>
+        <!-- 제품 선택 (URL에서 사전 세팅) -->
+        <div id="productContext" style="display:none; margin-bottom:20px; padding:12px 16px; background:#EEF3FA; border-radius:8px; font-size:13px; color:var(--navy);"></div>
 
+        <!-- 성명, 회사명 -->
         <div class="form-row">
           <div class="form-group">
-            <label for="name">이름<span class="req">*</span></label>
-            <input type="text" id="name" name="이름" placeholder="홍길동" autocomplete="name" />
-            <span class="field-error" id="err-name">이름을 입력해주세요</span>
+            <label for="name">성명 <span class="req">*</span></label>
+            <input type="text" id="name" placeholder="홍길동" />
+            <span class="field-error" id="nameError">성명을 입력해 주세요.</span>
           </div>
           <div class="form-group">
-            <label for="company">회사<span class="req">*</span></label>
-            <input type="text" id="company" name="회사" placeholder="(주)이우바이오" autocomplete="organization" />
-            <span class="field-error" id="err-company">회사명을 입력해주세요</span>
+            <label for="company">회사명 <span class="req">*</span></label>
+            <input type="text" id="company" placeholder="(주)예시코스메틱스" />
+            <span class="field-error" id="companyError">회사명을 입력해 주세요.</span>
           </div>
         </div>
 
+        <!-- 부서, 직함 -->
         <div class="form-row">
           <div class="form-group">
-            <label for="dept">부서<span class="opt">(선택)</span></label>
-            <input type="text" id="dept" name="부서" placeholder="연구개발팀" />
+            <label for="dept">부서</label>
+            <input type="text" id="dept" placeholder="연구개발팀" />
           </div>
           <div class="form-group">
-            <label for="title">직함<span class="opt">(선택)</span></label>
-            <input type="text" id="title" name="직함" placeholder="연구원" />
+            <label for="jobTitle">직함</label>
+            <input type="text" id="jobTitle" placeholder="대리" />
           </div>
         </div>
 
+        <!-- 이메일 -->
         <div class="form-group">
-          <label for="email">전자 메일 주소<span class="req">*</span></label>
-          <input type="email" id="email" name="전자 메일 주소" placeholder="example@company.com" autocomplete="email" />
-          <span class="field-error" id="err-email">올바른 이메일 주소를 입력해주세요</span>
+          <label for="email">이메일 <span class="req">*</span></label>
+          <input type="email" id="email" placeholder="example@company.com" />
+          <span class="field-error" id="emailError">올바른 이메일 주소를 입력해 주세요.</span>
         </div>
 
+        <!-- 연락정보 -->
         <div class="form-group">
-          <label for="phone">휴대폰<span class="req">*</span></label>
-          <input type="tel" id="phone" name="휴대폰" placeholder="010-0000-0000" autocomplete="tel" inputmode="numeric" />
-          <span class="field-error" id="err-phone">올바른 휴대폰 번호를 입력해주세요</span>
+          <label for="phone">연락처 <span class="req">*</span></label>
+          <input type="tel" id="phone" placeholder="010-0000-0000" />
+          <span class="field-error" id="phoneError">연락처를 입력해 주세요.</span>
         </div>
 
+        <!-- 상담 유형 -->
         <div class="form-group">
-          <label>요청 항목<span class="req">*</span><span class="opt">여러 개 선택 가능</span></label>
-          <div class="request-options" id="request-options">
-            <label class="request-option">
-              <input type="checkbox" name="requestType" value="샘플 요청" />
-              <i class="checkmark"></i>
-              <span><strong>샘플 요청</strong><span>제품 테스트용 샘플을 받고 싶어요</span></span>
+          <label>요청 유형 <span class="req">*</span></label>
+          <div class="request-options" id="requestOptions">
+            <label class="request-option" data-value="샘플 요청">
+              <input type="checkbox" value="샘플 요청">
+              <span class="check-icon"></span>
+              <span><strong>샘플 요청</strong><span style="display:block;font-size:11px;color:var(--text-muted);font-weight:400;">제품 테스트용 샘플을 받고 싶어요</span></span>
             </label>
-            <label class="request-option">
-              <input type="checkbox" name="requestType" value="견적 요청" />
-              <i class="checkmark"></i>
-              <span><strong>견적 요청</strong><span>단가, MOQ, 납기 정보를 알고 싶어요</span></span>
+            <label class="request-option" data-value="견적 요청">
+              <input type="checkbox" value="견적 요청">
+              <span class="check-icon"></span>
+              <span><strong>견적 요청</strong><span style="display:block;font-size:11px;color:var(--text-muted);font-weight:400;">단가, MOQ, 납기 정보를 알고 싶어요</span></span>
+            </label>
+            <label class="request-option" data-value="주요 서류 요청">
+              <input type="checkbox" value="주요 서류 요청">
+              <span class="check-icon"></span>
+              <span><strong>주요 서류 요청</strong><span style="display:block;font-size:11px;color:var(--text-muted);font-weight:400;">TDS, COA, MSDS 등 자료가 필요해요</span></span>
+            </label>
+            <label class="request-option" data-value="처방 상담">
+              <input type="checkbox" value="처방 상담">
+              <span class="check-icon"></span>
+              <span><strong>처방 상담</strong><span style="display:block;font-size:11px;color:var(--text-muted);font-weight:400;">제형 적용 가능성을 상담하고 싶어요</span></span>
             </label>
           </div>
-          <span class="field-error" id="err-request">요청 항목을 하나 이상 선택해주세요</span>
+          <span class="field-error" id="requestError">요청 유형을 선택해 주세요.</span>
         </div>
 
+        <!-- 문의 내용 -->
         <div class="form-group">
-          <label for="memo">메모 - 요청사항<span class="opt">(선택)</span></label>
-          <textarea id="memo" name="메모" placeholder="원하는 향조나 target 향, 목표 단가, 예상 사용량 등을 자유롭게 작성해주세요"></textarea>
+          <label for="memo">메모 - 요청사항 <span style="font-weight:400;color:var(--text-muted);">(선택)</span></label>
+          <textarea id="memo" placeholder="관심 원료명, 필요한 수량, 적용 제품군 등 추가 내용을 자유롭게 작성해주세요"></textarea>
         </div>
 
-        <p class="privacy-note">
-          상담 신청 시 입력하신 정보는 문의 응대 및 영업 담당자 배정을 위해 사용됩니다.
-        </p>
+        <!-- 개인정보 -->
+        <div style="font-size:12px; color:var(--text-muted); padding:12px 0; border-top:1px solid var(--border); margin-top:8px; line-height:1.7;">
+          입력하신 정보는 담당자 연락 시 활용되며, 추후 마케팅 메일 등에 활용되는 것에 동의한 것으로 간주합니다.
+        </div>
 
-        <div class="btn-wrap">
-          <button type="submit" id="submit-btn">
-            <span class="btn-text">상담 신청하기</span>
-            <div class="spinner"></div>
+        <!-- Submit -->
+        <div class="submit-wrap">
+          <button type="submit" class="btn-submit" id="submitBtn">
+            <span class="spinner" id="spinner"></span>
+            <span id="submitText">상담 신청하기</span>
           </button>
         </div>
 
       </form>
-    </div>
+    </div><!-- /#formWrap -->
 
-    <div id="success-screen">
+    <!-- Success Screen -->
+    <div class="success-screen" id="successScreen">
       <div class="success-icon">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 6L9 17l-5-5"/>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="20 6 9 17 4 12"/>
         </svg>
       </div>
       <h2>신청이 완료되었습니다!</h2>
-      <p>담당자가 확인 후 빠른 시일 내에<br>연락드리겠습니다. 감사합니다.</p>
-      <button class="btn-reset" onclick="resetForm()">다시 작성하기</button>
+      <p>담당 전문가가 빠른 시일 내로 연락드립니다.<br>입력하신 이메일을 확인해 주세요.</p>
+      <button class="btn-again" id="btnAgain">다시 신청하기</button>
     </div>
-  </div>
-</div>
+  </div><!-- /.card -->
 
-<footer>
-  &copy; 2025 이우바이오. All rights reserved.
-</footer>
+  <footer>
+    &copy; 2025 이우바이오. All rights reserved.
+    &nbsp;|
+    <a href="https://ewoobio.com" target="_blank">이우바이오 홈페이지</a>
+  </footer>
 
-<div id="toast"></div>
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
 
   <script>
-  // ── Replace this with your deployed Apps Script Web App URL ──
-  const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxDF5477VGu331_6TvWGnSq0ZslXB_MOM89fH5iAZJKhpPTQrCkTZ_8cBE7PIJm9X4cfQ/exec';
-  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
-  const PRODUCT_MAP = {
-    hexagonal_6c20: 'Hexagonal 6C-20',
-    'hexagonal-6c20': 'Hexagonal 6C-20',
-    ceramide_6c20: 'Hexagonal 6C-20',
-    'ceramide-6c20': 'Hexagonal 6C-20',
-    VivaScentz: 'VivaScentz™',
-    vivascentz: 'VivaScentz™',
-    DreamScentz: 'DreamScentz®',
-    dreamscentz: 'DreamScentz®',
-    'YouZap-FabZap': 'YouZap® · FabZap®',
-    'youzap-fabzap': 'YouZap® · FabZap®',
-    YouZap: 'YouZap®',
-    youzap: 'YouZap®',
-    FabZap: 'FabZap®',
-    fabzap: 'FabZap®',
-    Phytogaia: 'Phytogaia®',
-    phytogaia: 'Phytogaia®',
-    Geogaia: 'Geogaia™',
-    geogaia: 'Geogaia™',
-    ScalpSure: 'ScalpSure™',
-    scalpsure: 'ScalpSure™',
-  };
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzPsRuSBf58mgNW9jDcynODOQ5d__aVuLpvULd4LePnJ4RXzw8WBEtSgcoomkafCHZbuA/exec';
 
-  const form = document.getElementById('contact-form');
-  const submitBtn = document.getElementById('submit-btn');
-  const toast = document.getElementById('toast');
-  const productContext = document.getElementById('product-context');
-  const productContextName = document.getElementById('product-context-name');
-
-  function normalizeProductCode(value) {
-    return (value || '').trim().toLowerCase().replace(/\s+/g, '_');
-  }
-
-  function getProductData() {
-    const params = new URLSearchParams(window.location.search);
-    const rawCode = normalizeProductCode(params.get('product') || params.get('product_code'));
-    const rawName = (params.get('product_name') || '').trim();
-    const campaign = normalizeProductCode(params.get('utm_campaign'));
-    const code = rawCode || campaign;
-    const name = rawName || PRODUCT_MAP[code] || PRODUCT_MAP[campaign] || '';
-
-    return {
-      code,
-      name,
-    };
-  }
-
-  function getTrackingData() {
-    const params = new URLSearchParams(window.location.search);
-    const product = getProductData();
-    const tracking = {
-      '유입 URL': window.location.href,
-      '유입 경로': document.referrer || '',
-      '관심 제품': product.name,
+    const PRODUCT_MAP = {
+      'ScalpSure':        { name: 'ScalpSure',                  line: '스칼프 케어' },
+      'YouZap-FabZap':   { name: 'YouZap & FabZap',             line: '능동 향료' },
+      'Geogaia':         { name: 'Geogaia',                     line: '네이처 콜렉션' },
+      'Givaudan-Taste':  { name: 'Givaudan Taste',              line: '푸드 & 비버리지' },
+      'SymRise-Cosm':    { name: 'Symrise Cosmetic Actives',    line: '코스메틱 액티브' },
+      'Floraesters':     { name: 'Floraesters',                 line: '에스테르 오일' },
+      'ScentWave':       { name: 'ScentWave',                   line: '에어케어' },
     };
 
-    UTM_KEYS.forEach((key) => {
-      tracking[key] = params.get(key) || '';
-    });
-
-    return tracking;
-  }
-
-  function renderProductContext() {
-    const product = getProductData();
-    if (!product.name) return;
-    productContextName.textContent = product.name;
-    productContext.hidden = false;
-  }
-
-  function showToast(msg, type = 'success') {
-    toast.textContent = msg;
-    toast.className = 'show ' + (type === 'success' ? 'success' : 'error-toast');
-    clearTimeout(toast._timer);
-    toast._timer = setTimeout(() => { toast.className = ''; }, 3800);
-  }
-
-  function setError(fieldId, errorId, show) {
-    const input = document.getElementById(fieldId);
-    const err = document.getElementById(errorId);
-    if (show) {
-      input.classList.add('error');
-      err.classList.add('show');
-    } else {
-      input.classList.remove('error');
-      err.classList.remove('show');
-    }
-  }
-
-  function validateEmail(v) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
-  }
-
-  function validatePhone(v) {
-    return /^[\d\s\-+()]{9,15}$/.test(v.trim());
-  }
-
-  function validate() {
-    let ok = true;
-    const name = document.getElementById('name').value.trim();
-    const company = document.getElementById('company').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const requestTypes = [...document.querySelectorAll('input[name="requestType"]:checked')];
-
-    setError('name', 'err-name', !name); if (!name) ok = false;
-    setError('company', 'err-company', !company); if (!company) ok = false;
-    setError('email', 'err-email', !validateEmail(email)); if (!validateEmail(email)) ok = false;
-    setError('phone', 'err-phone', !validatePhone(phone)); if (!validatePhone(phone)) ok = false;
-    const requestMissing = requestTypes.length === 0;
-    document.getElementById('request-options').classList.toggle('error', requestMissing);
-    document.getElementById('err-request').classList.toggle('show', requestMissing);
-    if (requestMissing) ok = false;
-
-    return ok;
-  }
-
-  // Clear error on input
-  ['name','company','email','phone'].forEach(id => {
-    document.getElementById(id).addEventListener('input', () => {
-      document.getElementById(id).classList.remove('error');
-      const err = document.getElementById('err-' + id);
-      if (err) err.classList.remove('show');
-    });
-  });
-
-  document.querySelectorAll('input[name="requestType"]').forEach((input) => {
-    input.addEventListener('change', () => {
-      document.getElementById('request-options').classList.remove('error');
-      document.getElementById('err-request').classList.remove('show');
-    });
-  });
-
-  // Phone auto-format
-  document.getElementById('phone').addEventListener('input', function() {
-    let v = this.value.replace(/[^\d]/g, '');
-    if (v.length <= 3) this.value = v;
-    else if (v.length <= 7) this.value = v.slice(0,3) + '-' + v.slice(3);
-    else this.value = v.slice(0,3) + '-' + v.slice(3,7) + '-' + v.slice(7,11);
-  });
-
-  form.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    if (!validate()) return;
-
-    if (SCRIPT_URL === 'YOUR_APPS_SCRIPT_WEB_APP_URL') {
-      showToast('Apps Script URL을 설정해주세요 (index.html 상단 SCRIPT_URL)', 'error');
-      return;
+    function getProductData() {
+      const p = new URLSearchParams(window.location.search);
+      return {
+        product: p.get('product') || '',
+        type:    p.get('type')    || '',
+        utm_source:   p.get('utm_source')   || '',
+        utm_medium:   p.get('utm_medium')   || '',
+        utm_campaign: p.get('utm_campaign') || '',
+      };
     }
 
-    submitBtn.disabled = true;
-    submitBtn.classList.add('loading');
+    function getTrackingData() {
+      const p = new URLSearchParams(window.location.search);
+      return {
+        utm_source:   p.get('utm_source')   || '',
+        utm_medium:   p.get('utm_medium')   || '',
+        utm_campaign: p.get('utm_campaign') || '',
+      };
+    }
 
-    const selectedRequestTypes = [...document.querySelectorAll('input[name="requestType"]:checked')].map(input => input.value).join(', ');
-    const memoText = document.getElementById('memo').value.trim();
-    const product = getProductData();
-    const productLine = product.name ? `[관심 제품] ${product.name}\n` : '';
-    const combinedMemo = `${productLine}[요청 항목] ${selectedRequestTypes}\n[추가 메모] ${memoText || '-'}`;
+    function renderProductContext() {
+      const { product, type } = getProductData();
+      const ctx = document.getElementById('productContext');
+      if (!product) return;
+      const info = PRODUCT_MAP[product];
+      const productLabel = info ? info.name : product;
+      const lineLabel    = info ? info.line : '';
+      let html = '관심 제품: <strong>' + productLabel + '</strong>';
+      if (lineLabel) html += ' &nbsp;—&nbsp; ' + lineLabel;
+      if (type) html += '&nbsp;&nbsp;|&nbsp;&nbsp;요청: <strong>' + type + '</strong>';
+      ctx.innerHTML = html;
+      ctx.style.display = 'block';
+    }
 
-    const data = {
-      이름: document.getElementById('name').value.trim(),
-      회사: document.getElementById('company').value.trim(),
-      부서: document.getElementById('dept').value.trim(),
-      직함: document.getElementById('title').value.trim(),
-      '전자 메일 주소': document.getElementById('email').value.trim(),
-      휴대폰: document.getElementById('phone').value.trim(),
-      '관심 제품': product.name,
-      '요청 항목': selectedRequestTypes,
-      메모: combinedMemo,
-      formType: 'frag',
-      ...getTrackingData(),
-    };
+    function showToast(msg, isError) {
+      const t = document.getElementById('toast');
+      t.textContent = msg;
+      t.className = 'toast' + (isError ? ' error' : '');
+      t.classList.add('show');
+      setTimeout(() => t.classList.remove('show'), 3000);
+    }
 
-    try {
-      const res = await fetch(SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify(data),
-      });
-      const json = await res.json();
+    function setError(id, msg) {
+      const el = document.getElementById(id);
+      if (el) el.closest('.form-group').classList.add('has-error');
+      const er = document.getElementById(id + 'Error');
+      if (er) er.textContent = msg;
+    }
 
-      if (json.result === 'success') {
-        if (typeof gtag === 'function') {
-          gtag('event', 'lead_form_submit', {
-            campaign: data.utm_campaign || '',
-            cta_position: data.utm_content || '',
-            source: data.utm_source || '',
-            medium: data.utm_medium || '',
-            product_name: data['관심 제품'] || ''
-          });
-        }
-        document.getElementById('form-wrap').style.display = 'none';
-        document.getElementById('success-screen').style.display = 'flex';
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      } else {
-        throw new Error(json.error || '오류가 발생했습니다');
+    function clearError(id) {
+      const el = document.getElementById(id);
+      if (el) el.closest('.form-group').classList.remove('has-error');
+    }
+
+    function validateEmail(v) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+    }
+
+    function validatePhone(v) {
+      return /^[0-9\-\+\s\(\)]{7,20}$/.test(v);
+    }
+
+    function validate() {
+      let ok = true;
+      const name = document.getElementById('name').value.trim();
+      const company = document.getElementById('company').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const selected = [...document.querySelectorAll('.request-option.selected')];
+
+      if (!name) { setError('name', '성명을 입력해 주세요.'); ok = false; }
+      if (!company) { setError('company', '회사명을 입력해 주세요.'); ok = false; }
+      if (!email || !validateEmail(email)) { setError('email', '올바른 이메일 주소를 입력해 주세요.'); ok = false; }
+      if (!phone || !validatePhone(phone)) { setError('phone', '연락처를 입력해 주세요.'); ok = false; }
+      if (selected.length === 0) {
+        const rg = document.getElementById('requestOptions');
+        rg.closest('.form-group').classList.add('has-error');
+        ok = false;
       }
-    } catch (err) {
-      showToast('제출 중 오류가 발생했습니다. 잠시 후 다시 시도해주세요.', 'error');
-      submitBtn.disabled = false;
-      submitBtn.classList.remove('loading');
+      return ok;
     }
-  });
 
-  function resetForm() {
-    form.reset();
-    document.getElementById('request-options').classList.remove('error');
-    document.getElementById('err-request').classList.remove('show');
-    document.getElementById('form-wrap').style.display = 'block';
-    document.getElementById('success-screen').style.display = 'none';
-    submitBtn.disabled = false;
-    submitBtn.classList.remove('loading');
-  }
-
-  renderProductContext();
-  function preselectRequestType() {
-    const params = new URLSearchParams(window.location.search);
-    const type = params.get('type');
-    if (!type) return;
-    const checkboxes = document.querySelectorAll('input[name="requestType"]');
-    checkboxes.forEach(cb => {
-      if (cb.value === type) cb.checked = true;
+    // Clear errors on input
+    ['name','company','email','phone'].forEach(id => {
+      const el = document.getElementById(id);
+      if (el) el.addEventListener('input', () => clearError(id));
     });
-  }
-  preselectRequestType();
-</script>
+
+    // Request option toggles
+    document.querySelectorAll('.request-option').forEach(opt => {
+      opt.addEventListener('click', function(e) {
+        e.preventDefault();
+        this.classList.toggle('selected');
+        const cb = this.querySelector('input[type=checkbox]');
+        if (cb) cb.checked = this.classList.contains('selected');
+        document.getElementById('requestOptions')
+          .closest('.form-group').classList.remove('has-error');
+      });
+    });
+
+    // Phone auto-format
+    document.getElementById('phone').addEventListener('input', function() {
+      let v = this.value.replace(/\D/g, '');
+      if (v.length <= 3) {
+        this.value = v;
+      } else if (v.length <= 7) {
+        this.value = v.slice(0,3) + '-' + v.slice(3);
+      } else if (v.length <= 11) {
+        this.value = v.slice(0,3) + '-' + v.slice(3, v.length-4) + '-' + v.slice(-4);
+      } else {
+        this.value = v.slice(0,3) + '-' + v.slice(3,7) + '-' + v.slice(7,11);
+      }
+    });
+
+    // Form submit
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      if (!validate()) return;
+
+      const btn = document.getElementById('submitBtn');
+      const spinner = document.getElementById('spinner');
+      const submitText = document.getElementById('submitText');
+
+      btn.disabled = true;
+      spinner.style.display = 'block';
+      submitText.textContent = '제용중...';
+
+      const { product, type, utm_source, utm_medium, utm_campaign } = getProductData();
+      const selected = [...document.querySelectorAll('.request-option.selected')]
+        .map(el => el.dataset.value);
+
+      const payload = {
+        formType: 'raw',
+        name:     document.getElementById('name').value.trim(),
+        company:  document.getElementById('company').value.trim(),
+        dept:     document.getElementById('dept').value.trim(),
+        jobTitle: document.getElementById('jobTitle').value.trim(),
+        email:    document.getElementById('email').value.trim(),
+        phone:    document.getElementById('phone').value.trim(),
+        requestType: selected.join(', '),
+        memo:     document.getElementById('memo').value.trim(),
+        product, type, utm_source, utm_medium, utm_campaign,
+        submittedAt: new Date().toISOString(),
+      };
+
+      try {
+        const resp = await fetch(SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload),
+        });
+        const data = await resp.json();
+        if (data.result === 'success') {
+          // GA event
+          if (typeof gtag === 'function') {
+            gtag('event', 'form_submit', {
+              event_category: 'contact_raw',
+              event_label: product || 'direct',
+            });
+          }
+          // Show success
+          document.getElementById('formWrap').style.display = 'none';
+          document.getElementById('successScreen').style.display = 'block';
+        } else {
+          throw new Error(data.message || '오류');
+        }
+      } catch (err) {
+        showToast('제출에 실패했습니다. 다시 시도해 주세요.', true);
+        console.error(err);
+      } finally {
+        btn.disabled = false;
+        spinner.style.display = 'none';
+        submitText.textContent = '상담 신청하기';
+      }
+    });
+
+    // Reset
+    function resetForm() {
+      document.getElementById('contactForm').reset();
+      document.querySelectorAll('.request-option.selected')
+        .forEach(el => el.classList.remove('selected'));
+      document.querySelectorAll('.has-error')
+        .forEach(el => el.classList.remove('has-error'));
+    }
+
+    document.getElementById('btnAgain').addEventListener('click', function() {
+      resetForm();
+      document.getElementById('successScreen').style.display = 'none';
+      document.getElementById('formWrap').style.display = 'block';
+    });
+
+    // Init
+    renderProductContext();
+    (function preselectRequestType() {
+      const t = new URLSearchParams(window.location.search).get('type');
+      if (!t) return;
+      document.querySelectorAll('.request-option').forEach(opt => {
+        if (opt.dataset.value === t) {
+          opt.classList.add('selected');
+          const cb = opt.querySelector('input');
+          if (cb) cb.checked = true;
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
